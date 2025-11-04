@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeConvert - Free Online File Converter Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .nav-btn {
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #5568d3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 6px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tools Section */
+        .tools-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .tool-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .tool-card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .tool-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Featured Tool */
+        .featured-tool {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .featured-tool h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .featured-tool p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .featured-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 50px;
+            border-radius: 6px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-section a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">FreeConvert</a>
+            <nav class="nav-menu">
+                <a href="#">Convert</a>
+                <a href="#">Compress</a>
+                <a href="#">Tools</a>
+                <a href="#">API</a>
+                <a href="#">Pricing</a>
+                <a href="#">Log In</a>
+                <button class="nav-btn">Sign Up</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🛠️ Free Online File Converter</h1>
+            <p>Convert, compress, and transform your files with our powerful online tools. Fast, secure, and completely free.</p>
+            <a href="image-converter.html" class="hero-btn">Start Converting Now →</a>
+        </div>
+    </section>
+
+    <!-- Featured Tool -->
+    <section class="tools-section">
+        <div class="featured-tool">
+            <div class="tool-icon">🖼️</div>
+            <h2>Image Converter</h2>
+            <p>Convert images between 20+ formats including JPEG, PNG, WEBP, GIF, BMP, TIFF, and more. Resize, compress, rotate, and optimize your images instantly.</p>
+            <a href="image-converter.html" class="featured-btn">Convert Images →</a>
+        </div>
+
+        <h2 class="section-title">All Tools</h2>
+        <div class="tools-grid">
+            <a href="image-converter.html" class="tool-card">
+                <div class="tool-icon">🖼️</div>
+                <h2>Image Converter</h2>
+                <p>Convert images between 20+ formats. Supports JPEG, PNG, WEBP, GIF, BMP, TIFF, ICO, SVG and more with quality control and optimization.</p>
+            </a>
+
+            <a href="test.html" class="tool-card">
+                <div class="tool-icon">🧪</div>
+                <h2>Test Page</h2>
+                <p>Test various functionalities including API calls, input validation, console logging, and web feature testing.</p>
+            </a>
+
+            <a href="png-to-jpg.html" class="tool-card">
+                <div class="tool-icon">📸</div>
+                <h2>PNG to JPG</h2>
+                <p>Quickly convert PNG images to JPG format with adjustable quality settings. Perfect for reducing file sizes while maintaining image quality.</p>
+            </a>
+
+            <div class="tool-card">
+                <div class="tool-icon">📄</div>
+                <h2>PDF Converter</h2>
+                <p>Convert PDF files to various formats or convert other files to PDF. Edit, merge, split, and compress PDF documents.</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎵</div>
+                <h2>Audio Converter</h2>
+                <p>Convert audio files between MP3, WAV, FLAC, AAC, OGG, and more formats with customizable bitrate and quality settings.</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🎬</div>
+                <h2>Video Converter</h2>
+                <p>Convert video files between MP4, AVI, MOV, MKV, WebM, and other popular formats with resolution and quality options.</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📦</div>
+                <h2>Archive Converter</h2>
+                <p>Convert and extract archive files including ZIP, RAR, 7Z, TAR, GZ formats with password protection support.</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">📊</div>
+                <h2>Document Converter</h2>
+                <p>Convert documents between DOC, DOCX, XLS, XLSX, PPT, PPTX, ODT, and other office formats.</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🗜️</div>
+                <h2>Image Compressor</h2>
+                <p>Compress images to reduce file size while maintaining quality. Supports JPEG, PNG, WEBP optimization.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Convert</h3>
+                    <a href="image-converter.html">Image Converter</a>
+                    <a href="#">PDF Converter</a>
+                    <a href="#">Video Converter</a>
+                    <a href="#">Audio Converter</a>
+                    <a href="#">Document Converter</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Compress</h3>
+                    <a href="#">Compress Image</a>
+                    <a href="#">Compress PDF</a>
+                    <a href="#">Compress Video</a>
+                    <a href="#">Compress Audio</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Tools</h3>
+                    <a href="test.html">Test Page</a>
+                    <a href="png-to-jpg.html">PNG to JPG</a>
+                    <a href="#">Resize Image</a>
+                    <a href="#">Crop Image</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">API</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FreeConvert. All rights reserved. | <a href="#" style="color: #667eea;">Terms of Use</a> | <a href="#" style="color: #667eea;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
